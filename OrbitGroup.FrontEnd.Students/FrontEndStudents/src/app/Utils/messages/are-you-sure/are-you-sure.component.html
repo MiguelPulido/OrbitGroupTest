@@ -1,0 +1,15 @@
+<div class="main">
+    <mat-icon class="material-icons main-icon" 
+      color="warn"> report </mat-icon>
+
+  <div class="text" [innerHTML]=message></div>
+
+  <div class="action">
+    <button matTooltip="Accept" mat-fab color="accent" [mat-dialog-close]="1">
+      <mat-icon class="material-icons md-40"> done </mat-icon>
+    </button>
+    <button matTooltip="Cancel" mat-fab color="warn" [mat-dialog-close]="0">
+      <mat-icon class="material-icons md-40"> clear </mat-icon>
+    </button>
+  </div>
+</div>

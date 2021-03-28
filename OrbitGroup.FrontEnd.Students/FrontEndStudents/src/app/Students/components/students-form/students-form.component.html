@@ -1,0 +1,55 @@
+<div class="form-container">
+  <form #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" [formGroup]="this.studentForm">
+    <div class="form-container">
+
+      <mat-form-field>
+        <input id="username" matInput placeholder="Enter Username" formControlName="username" required
+          maxlength="{{this.getUsernameMaxLength()}}">
+        <mat-hint align="end">{{this.studentForm.get('username').value.length}} / {{this.getUsernameMaxLength()}}
+        </mat-hint>
+        <mat-error *ngIf="studentForm.get('username').invalid">{{getErrorMessage("username")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input id="firstName" matInput placeholder="Enter First Name" formControlName="firstName" required
+          maxlength="{{this.getFirstNameMaxLength()}}">
+        <mat-hint align="end">{{this.studentForm.get('firstName').value.length}} /
+          {{this.getFirstNameMaxLength()}}</mat-hint>
+        <mat-error *ngIf="studentForm.get('firstName').invalid">{{getErrorMessage("firstName")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input id="lastName" matInput placeholder="Enter Last Name" formControlName="lastName" required
+          maxlength="{{this.getLastNameMaxLength()}}">
+        <mat-hint align="end">{{this.studentForm.get('lastName').value.length}} / {{this.getLastNameMaxLength()}}
+        </mat-hint>
+        <mat-error *ngIf="studentForm.get('lastName').invalid">{{getErrorMessage("lastName")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select id="age" placeholder="Enter Age" formControlName="age" required>
+          <mat-option *ngFor="let item of this.ageArray" [value]="item">{{ item }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="studentForm.get('age').invalid">{{getErrorMessage("age")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input id="career" matInput placeholder="Enter Career" formControlName="career" required
+          maxlength="{{this.getCareerMaxLength()}}">
+        <mat-hint align="end">{{this.studentForm.get('career').value.length}} / {{this.getCareerMaxLength()}}
+        </mat-hint>
+        <mat-error *ngIf="studentForm.get('career').invalid">{{getErrorMessage("career")}}</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="action-container">
+      <button *ngIf="!modify" type="submit" mat-raised-button color="accent" [disabled]="!studentForm.valid">
+        <mat-icon class="material-icons md-40"> add </mat-icon> <span> Create </span>
+      </button>
+      <button *ngIf="modify" type="submit" mat-raised-button color="accent" [disabled]="!studentForm.valid">
+        <mat-icon class="material-icons md-40"> sync </mat-icon> <span> Update </span>
+      </button>
+    </div>
+  </form>
+
+</div>

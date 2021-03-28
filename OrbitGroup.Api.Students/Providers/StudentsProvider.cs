@@ -32,7 +32,7 @@ namespace OrbitGroup.Api.Students.Providers
             try
             {
                 var newStudent = MapFromStudentModelToStudentEntity(mStudent);
-                if (!_studentsValidator.areStudentsFieldsValid(newStudent))
+                if (!_studentsValidator.AreStudentsFieldsValid(newStudent))
                 {
                     return (false, -1, CustomErrorMessage.DataError);
                 }
@@ -123,7 +123,7 @@ namespace OrbitGroup.Api.Students.Providers
             try
             {
                 var student = MapFromStudentModelToStudentEntity(mStudent);
-                if (!_studentsValidator.areStudentsFieldsValid(student))
+                if (!_studentsValidator.AreStudentsFieldsValid(student))
                 {
                     return (false, CustomErrorMessage.DataError);
                 }

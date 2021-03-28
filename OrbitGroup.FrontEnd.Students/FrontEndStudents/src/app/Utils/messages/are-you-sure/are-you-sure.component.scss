@@ -1,0 +1,23 @@
+div.main{
+    display: flex;
+    justify-content:center;
+    flex-flow: row wrap;
+    flex-direction: column;
+}
+.main-icon{
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+div.text{
+    justify-content:center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+div.action{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

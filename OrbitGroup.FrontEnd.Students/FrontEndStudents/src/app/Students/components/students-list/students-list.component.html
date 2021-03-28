@@ -1,0 +1,74 @@
+<mat-card class="mat-elevation-z6">
+  <mat-card-header>
+    <mat-card-title>Students List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mat-elevation-z3">
+      <table mat-table #table [dataSource]="dataSource" matSort>
+        
+        <!--Column username -->
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="columns"> User Name </th>
+          <td mat-cell *matCellDef="let element" class="columns"> {{element.username}} </td>
+        </ng-container>
+  
+        <!--Column firstName  -->
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="columns"> First Name </th>
+          <td mat-cell *matCellDef="let element" class="columns"> {{element.firstName}} </td>
+        </ng-container>
+  
+        <!--Column lastName -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="columns"> Last Name </th>
+          <td mat-cell *matCellDef="let element" class="columns"> {{element.lastName}} </td>
+        </ng-container>
+        
+        <!--Column age -->
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="columns"> Age </th>
+          <td mat-cell *matCellDef="let element" class="columns"> {{element.age}} </td>
+        </ng-container>
+  
+        <!--Column career -->
+        <ng-container matColumnDef="career">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="columns"> Career </th>
+          <td mat-cell *matCellDef="let element" class="columns"> {{element.career}} </td>
+        </ng-container>
+        
+        <!--Column edit -->
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef ></th>
+          <td mat-cell *matCellDef="let element" class="columns">
+            <button matTooltip="Edit Student" mat-mini-fab color="accent" (click)="modifyTableElement(element)">
+              <mat-icon class="material-icons md-40"> edit </mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        
+        <!--Column delete -->
+        <ng-container matColumnDef="delete" >
+          <th mat-header-cell *matHeaderCellDef ></th>
+          <td mat-cell *matCellDef="let element" class="maxColumnButtonsWidth">
+            <button matTooltip="Delete Student" mat-mini-fab color="warn" (click)="deleteTableElement(element)">
+              <mat-icon class="material-icons md-40"> delete </mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+  
+        <!--columns to use-->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <!--Paginator-->
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </mat-card-content>
+  
+    <mat-card-actions>
+      <button matTooltip="Add Student" mat-fab color="accent" (click)="openDialogFormNewWorkItem(null)">
+        <mat-icon class="material-icons md-40"> add </mat-icon>
+    </button>
+  </mat-card-actions>
+  </mat-card>
+  <!--load spinner component-->
+  <app-spinner *ngIf="showLoadingSpinner"></app-spinner>

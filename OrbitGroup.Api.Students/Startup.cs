@@ -36,6 +36,8 @@ namespace OrbitGroup.Api.Students
             services.AddScoped<IStudentsDataAccess, StudentsDataAccess>();
             services.AddSingleton(new StudentsValidator());
 
+            services.AddCors();
+
             // Automapper configurations
             var mapperConfig = new MapperConfiguration(mc =>
             {
@@ -57,6 +59,13 @@ namespace OrbitGroup.Api.Students
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

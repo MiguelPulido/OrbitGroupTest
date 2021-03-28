@@ -1,0 +1,31 @@
+
+table {
+  width: 100%;
+}  
+.mat-raised-button.btnSubmit[disabled]{
+  background-color: rgb(224, 224, 224) !important;
+}  
+.columns{
+  padding-right: 10px !important;
+}
+.mat-card{
+  margin: 10px;   
+ 
+}
+.mat-card-content{
+  margin-bottom: 10px;   
+  width: 100%;
+  overflow: auto;
+}
+.mat-table {
+  overflow-x: scroll; 
+  max-width: 100%;
+}
+.mat-card-header{  
+  display:flex;
+  justify-content: center;
+}
+.mat-card-actions{  
+  display:flex;
+  justify-content: flex-end;
+}
