@@ -1,7 +1,7 @@
 # OrbitGroupTest
 Student App Test for Orbit group
 
-#Developed by
+# Developed By
 Miguel Angel Pulido Rodriguez
 
 # Projects
